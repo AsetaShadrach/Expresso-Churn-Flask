@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% block title %}
+  <!-- Page Titles will go here --->
+  {% endblock %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css')}}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
+<!--===============================================================================================-->
+ 
+
+</head>
+
+
+<body >
+  <div class="limiter">
+    <div class="org-name p-b-0">Expresso</div>
+      <div class="expresso-navbar p-b-0">
+        <ul class="nav-bar-links">
+          <ul class="left-nav">
+            <li><a  href="{{url_for('home_page')}}">Home</a></li>
+            
+          </ul>
+          {% if current_user.is_authenticated %}
+          <ul class="left-nav">
+            <li><a href="{{url_for('datainsights_page')}}">DataInsights</a></li>
+            <li><a href="{{url_for('userinfo_page')}}">UserInfo</a></li>
+          </ul>
+              
+            <ul class="right-nav">
+              <li><a>{{current_user.employee_fname}}</a></li>
+              <li><a  href="{{url_for('logout_page')}}">Logout </a></li>
+            </ul>
+          {% else %}
+            <ul class="left-nav">
+              <li><a  href="{{url_for('trial_prediction_page')}}">Try it out </a></li>
+            </ul>
+            <ul class="right-nav">
+              <li><a  href="{{url_for('reg_access_page')}}">Sign Up </a></li>
+            </ul>
+            <ul class="right-nav">
+              <li><a  href="{{url_for('login_page')}}">Login </a></li>
+            </ul>
+            
+          {% endif %}
+        </ul>
+      </div>
+
+		<div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category,message in messages %}
+          <div class="alert alert-{{category}}">
+            <button type="button" class="m-t-1 m-b-1 close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">
+                &times;
+              </span>
+            </button>
+            {{message}}
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+    {%block content%}
+
+    {%endblock%}
+
+    </div>
+  
+  </div>
+
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a9545f17e8.js" crossorigin="anonymous"></script>
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+    <!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <!--===============================================================================================-->
+      <script src="{{ url_for('static', filename='vendor/animsition/js/animsition.min.js')}}"></script>
+    <!--===============================================================================================-->
+      <script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js')}}"></script>
+      <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!--===============================================================================================-->
+      <script src="{{ url_for('static', filename='vendor/select2/select2.min.js')}}"></script>
+    <!--===============================================================================================-->
+      <script src="{{ url_for('static', filename='vendor/daterangepicker/moment.min.js')}}"></script>
+      <script src="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
+    <!--===============================================================================================-->
+      <script src="{{ url_for('static', filename='vendor/countdowntime/countdowntime.js')}}"></script>
+    <!--===============================================================================================-->
+      <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+<style>
+  body{
+        color: #fffafa;
+    }
+    
+  .expresso-navbar{
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .org-name{
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .expresso-navbar a{
+    font-size: 17px;
+    color: #ced6f7;
+    padding-left: 4px;
+    padding-right: 4px;
+    
+  }
+
+  .nav-bar-links{
+    list-style: none;
+  }
+  .nav-bar-links li{
+    display: inline;
+  }
+  .left-nav{
+    float: left;
+    padding-top:0.7%;
+    padding-left: 10px;
+  }
+  .right-nav{
+    float:right;
+    padding-top:0.7%;
+    padding-right: 1%;
+  }
+  
+</style>
+
+</html>

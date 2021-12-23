@@ -1,0 +1,89 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<body>
+    <div class="container-login100">
+        <form method="POST" >
+            {{form.hidden_tag()}}
+            <h1 class="login100-form-title">Enter User Details</h1>
+            <br><br>
+            <div class="row">
+                <div class="col-3 prediction_col">
+                    {{form.userid.label()}}
+                    {{form.userid(class="form-control", placeholder="User Id")}}
+                    <br>
+                    {{form.region.label()}}
+                    {{form.region(class="form-control", placeholder="Region")}}
+                    <br>
+                    {{form.tenure.label()}}
+                    {{form.tenure(class="form-control", placeholder="Tenure")}}
+                    <br>
+                    {{form.montant.label()}}
+                    {{form.montant(class="form-control", placeholder="")}}
+                    <br>
+                    {{form.frequency_rech.label()}}
+                    {{form.frequency_rech(class="form-control", placeholder="")}}
+                    <br>
+                    {{form.revenue.label()}}
+                    {{form.revenue(class="form-control", placeholder="User revenue")}}
+                </div>
+                
+                <div class="col-3 prediction_col">
+                    {{form.arpu_segment.label()}}
+                    {{form.arpu_segment(class="form-control", placeholder="Revenue/90 days")}}
+                    <br>
+                    {{form.frequency.label()}}
+                    {{form.frequency(class="form-control", placeholder="")}}
+                    <br>
+                    {{form.data_volume.label()}}
+                    {{form.data_volume(class="form-control", placeholder="Data Volume ")}}
+                    <br>
+                    {{form.on_net.label()}}
+                    {{form.on_net(class="form-control", placeholder="No of on-net calls")}}
+                    <br>
+                    {{form.orange.label()}}
+                    {{form.orange(class="form-control", placeholder="No. of calls to orange")}}
+                    <br>
+                    {{form.tigo.label()}}
+                    {{form.tigo(class="form-control", placeholder="No. of calls to tigo")}}
+                </div>
+                
+                <div class="col-3 prediction_col"> 
+                    {{form.zone1.label()}}
+                    {{form.zone1(class="form-control", placeholder="No. of calls to zone1")}}
+                    <br>
+                    {{form.zone2.label()}}
+                    {{form.zone2(class="form-control", placeholder="No. of calls to zone2")}}
+                    <br>
+                    {{form.mrg.label()}}
+                    {{form.mrg(class="form-control", placeholder="Migrated ?")}}
+                    <br>
+                    {{form.regularity.label()}}
+                    {{form.regularity(class="form-control", placeholder="")}}
+                    <br>
+                    {{form.top_pack.label()}}
+                    {{form.top_pack(class="form-control", placeholder="User's top Pack")}}
+                    <br>
+                    {{form.freq_top_pack.label()}}
+                    {{form.freq_top_pack(class="form-control", placeholder="Frequency of the user's top pack")}}
+                </div>
+            
+                <div class="col-3 prediction_col start_middle" >
+                    {{form.user_add(class="btn user_form_btn btn-secondary")}}
+                    <br><br><br>
+                    {{form.user_predict(class="btn user_form_btn btn-secondary")}}
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<style>
+
+    form{
+        width: 90%;
+        justify-content: center;
+        align-content: center;
+    }
+</style>
+{%endblock%}

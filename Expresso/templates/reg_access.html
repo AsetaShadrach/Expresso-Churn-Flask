@@ -1,0 +1,42 @@
+{%extends 'base.html' %}
+
+
+{%block title%}
+{%endblock%}
+
+{%block content%}
+<body>
+	<div class="wrap-login100">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-40">
+                Confirm Registration Access</span>
+
+                    <form class="login100-form validate-form" method="POST">
+                        {{registration_access.hidden_tag() }}
+                        
+                        <div class="wrap-input100 validate-input" data-validate = "Enter Employee ID">
+                        {{registration_access.employee_id(class="input100", placeholder="Employee ID")}}
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Enter Email">
+                        {{registration_access.employee_email(class="input100", placeholder="Email")}}
+                        <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                        </div>
+                        
+
+                        <div>
+                            {{registration_access.access_confirm (class="btn login100-form-btn m-t-32 m-b-30 m-l-10")}}
+                            
+                            <a type="button" class="btn btn-danger m-l-30"
+                                href="{{url_for('login_page')}}"> Close</a>
+                       
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

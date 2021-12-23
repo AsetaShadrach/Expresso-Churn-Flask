@@ -1,0 +1,70 @@
+{%extends 'base.html' %}
+
+
+{%block title%}
+{%endblock%}
+
+{%block content%}
+<body>
+	<div class="wrap-login100">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-30 p-b-50">
+
+				<span class="login100-form-title p-b-40">
+					Account SetUp
+				</span>
+
+				<form class="login100-form validate-form p-b-33 p-t-5" method="POST">
+					{{form.hidden_tag() }}
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{form.employee_id(class="input100", placeholder="Employee ID")}}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{form.employee_email(class="input100", placeholder="Email")}}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{form.employee_sname(class="input100", placeholder="Surname")}}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{form.employee_fname(class="input100", placeholder="First Name")}}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{form.employee_mname(class="input100", placeholder="Middle Name")}}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+                    	{{form.employee_password(class="input100", placeholder="Password")}}
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Confirm password">
+                    	{{form.employee_password_confirm(class="input100", placeholder="Confirm Password")}}
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						{{form.employee_create(class="btn login100-form-btn")}}
+						
+						<a class="btn btn-danger m-l-30" href="{{url_for('login_page')}}">Close</a>    
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+</body>
+
+{%endblock%}

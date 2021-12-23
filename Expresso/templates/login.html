@@ -1,0 +1,54 @@
+{%extends 'base.html' %}
+
+
+{%block title%}
+{%endblock%}
+
+{%block content%}
+<body>
+	<div class="wrap-login100">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<span class="login100-form-title p-b-40">
+					Employee Login
+				</span>
+				<form class="login100-form validate-form" method="POST">
+					
+					{{form.hidden_tag() }}
+					
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						{{form.employee_id(class="input100", placeholder="Employee ID")}}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+                    	{{form.employee_password(class="input100", placeholder="**********")}}
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div>
+						{{form.employee_login(class="btn login100-form-btn m-t-32 m-l-10 center")}}
+						
+					</div>
+					<div class="p-t-30">
+						Don't have an account ?
+						<a type="button" class="button-link"
+						href="{{url_for('reg_access_page')}}"> Set Up Account</a>
+
+					</div>
+					
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+{%endblock%}
+<style>
+	.container-login100{
+		justify-content: center;
+  		align-items: center;
+	}
+	
+</style>
