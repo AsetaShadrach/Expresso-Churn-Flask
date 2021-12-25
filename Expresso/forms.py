@@ -18,17 +18,20 @@ class UserDataForm(FlaskForm):
                 ("J 21-24 month	"),("K > 24 month")]
     tenure = SelectField(choices=TENURES)	
     montant = FloatField(label="Montant")
-    frequency_rech = IntegerField(label="Freq Rech")
+    frequence_rech = IntegerField(label="Freq Rech")
     revenue = FloatField(label="Revenue")
-    arpu_segment = FloatField(label="Revenue/90 days")
-    frequency = IntegerField(label="Frequency")
+    arpu_segment = FloatField(label="ARPU-Segment")
+    frequence = IntegerField(label="Frequency")
     data_volume = IntegerField(label=" Data Volume")	
     on_net = IntegerField(label="No. On-Net calls")
     orange	= IntegerField(label="No of calls to Orange")
     tigo = IntegerField(label="No. of calls to Tigo")
     zone1 = IntegerField(label="No. of calls to Zone1")
     zone2 = IntegerField(label="No. of calls to Zone2")
-    mrg	= StringField(label="Migrate")
+    
+    MIGRATED=[("NO"),("YES")]
+    mrg	= SelectField(choices=MIGRATED)
+    
     regularity	= IntegerField(label="Regularity")
     top_pack = StringField(label="Top Pack")
     freq_top_pack = IntegerField(label="Frequency of top pack")

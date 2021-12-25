@@ -7,6 +7,7 @@ import os
 from flask_login import login_user, logout_user, login_required, current_user
 from Expresso import db
 from Expresso.models import Employee, ExpressoUser
+from Expresso.helpers.prediction_helper import get_prediction
 
 @app.route('/')
 @app.route('/home')
@@ -100,11 +101,11 @@ def logout_page():
 @app.route('/trial-prediction', methods=['GET','POST'])
 def trial_prediction_page():
     form = UserDataForm()
-    #data = request.json
-    #headers = {"content-type": "application/json"}
-    #json_response = requests.post('http://localhost:8501/v1/models/model:predict', data=data, headers=headers)
-    #prediction = json.loads(json_response.text)['predictions'][0]
-    return render_template("trial_prediction.html", form = form)
+    prediction = ""
+    if request.method=="POST":
+        prediction = get_prediction(request)
+        return render_template("trial_prediction.html", form = form, prediction=prediction)
+    return render_template("trial_prediction.html", form = form , prediction=prediction )
 
 
 if __name__ == '__main__':

@@ -22,8 +22,8 @@
                     {{form.montant.label()}}
                     {{form.montant(class="form-control", placeholder="")}}
                     <br>
-                    {{form.frequency_rech.label()}}
-                    {{form.frequency_rech(class="form-control", placeholder="")}}
+                    {{form.frequence_rech.label()}}
+                    {{form.frequence_rech(class="form-control", placeholder="")}}
                     <br>
                     {{form.revenue.label()}}
                     {{form.revenue(class="form-control", placeholder="User revenue")}}
@@ -33,8 +33,8 @@
                     {{form.arpu_segment.label()}}
                     {{form.arpu_segment(class="form-control", placeholder="Revenue/90 days")}}
                     <br>
-                    {{form.frequency.label()}}
-                    {{form.frequency(class="form-control", placeholder="")}}
+                    {{form.frequence.label()}}
+                    {{form.frequence(class="form-control", placeholder="")}}
                     <br>
                     {{form.data_volume.label()}}
                     {{form.data_volume(class="form-control", placeholder="Data Volume ")}}
@@ -70,9 +70,16 @@
                 </div>
             
                 <div class="col-3 prediction_col start_middle" >
-                    {{form.user_add(class="btn user_form_btn btn-secondary")}}
-                    <br><br><br>
-                    {{form.user_predict(class="btn user_form_btn btn-secondary")}}
+                    
+                    <div>
+                        {{form.user_predict(class="btn user_form_btn btn-secondary")}}
+                        <h4 class="btn user_form_btn btn-secondary">Likelyhood of churn</h4>
+                            {{prediction}}
+                    </div>
+
+                    <div>{{form.user_add(class="btn user_form_btn btn-secondary")}}</div>
+                    
+
                 </div>
             </div>
         </form>
