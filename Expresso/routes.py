@@ -103,7 +103,7 @@ def trial_prediction_page():
     form = UserDataForm()
     prediction = ""
     if request.method=="POST":
-        #prediction = get_prediction(request)
+        prediction = get_prediction(request)
         return render_template("trial_prediction.html", form = form, prediction=prediction)
     return render_template("trial_prediction.html", form = form , prediction=prediction )
 
