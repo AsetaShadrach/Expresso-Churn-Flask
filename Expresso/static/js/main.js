@@ -82,6 +82,13 @@
         }
         
     });
+
+    /*============[show prediction div]=======================*/
+
+    $('#get_prediction').on('click', function(){
+        document.getElementById("prediction_div").style.display="block"; 
+        return false;   
+    });
     
 
 })(jQuery);

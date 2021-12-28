@@ -499,8 +499,20 @@ iframe {
 
 /*------ --------- -------*/
 .prediction_col{
-  flex-grow: 1;
+  flex: 1 1 25%;
   padding: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .prediction_col{
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row{
+    flex-direction:column;
+  }
 }
 
 .start_middle{

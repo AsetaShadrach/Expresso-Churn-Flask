@@ -9,7 +9,7 @@
             <h1 class="login100-form-title">Enter User Details</h1>
             <br><br>
             <div class="row">
-                <div class="col-3 prediction_col ">
+                <div class="prediction_col ">
                     <i>You may fill in with whichever values you'd like to try out</i>
                     <br><br>
                     {{form.region.label()}}
@@ -28,7 +28,7 @@
                     {{form.revenue(class="form-control", placeholder="User revenue")}}
                 </div>
                 
-                <div class="col-3 prediction_col ">
+                <div class="prediction_col ">
                     {{form.arpu_segment.label()}}
                     {{form.arpu_segment(class="form-control", placeholder="Revenue/90 days")}}
                     <br>
@@ -48,7 +48,7 @@
                     {{form.tigo(class="form-control", placeholder="No. of calls to tigo")}}
                 </div>
                 
-                <div class="col-3 prediction_col "> 
+                <div class="prediction_col "> 
                     {{form.zone1.label()}}
                     {{form.zone1(class="form-control", placeholder="No. of calls to zone1")}}
                     <br>
@@ -68,11 +68,14 @@
                     {{form.freq_top_pack(class="form-control", placeholder="Frequency of the user's top pack")}}
                 </div>
             
-                <div class="col-3 prediction_col start_middle" >
-                    {{form.user_predict(class="btn user_form_btn btn-secondary")}}
-                        
-                    <h4 class="btn user_form_btn btn-secondary">Likelyhood of churn</h4>
+                <div class="prediction_col start_middle" >
+                    {{form.user_predict(id="get_prediction", class="btn user_form_btn btn-secondary")}}
+                    
+                    <div id ="prediction_div" style="display:none">
+                        <h4 class="btn user_form_btn btn-secondary" aria-hidden="true">Likelyhood of churn</h4>
                         {{prediction}}
+                    </div>
+                    
                 </div>
             
             </div>
