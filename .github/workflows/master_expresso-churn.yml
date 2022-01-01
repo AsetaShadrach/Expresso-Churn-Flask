@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'expresso-churn'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_01FF8D52936F470AA1300058F8FB8FEE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CBA62DDCBF1C4EBC81A087787DCA466A }}
