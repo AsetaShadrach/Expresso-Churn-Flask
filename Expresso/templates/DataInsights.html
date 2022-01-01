@@ -10,13 +10,13 @@
                 <ul class="image-links">Available Charts
                     {% for image_name in image_names %}
                     <li>
-                        <a class="data-image-link" 
+                        <a class="data_image_link" 
                         href="{{url_for('static', filename='images/charts/'+image_name+'')}}">{{image_name}}</a>
                     </li>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-9 " style="background-image: url('static/images/charts/Capture.png');">
+            <div id="DataImageDiv"class="col-9" style="background-image: url('static/images/charts/data2.jpg');">
                 <!-- Display Images and stats here-->
                 
             </div>
@@ -46,7 +46,7 @@
 	.container-login100{
 		justify-content: start;
   		align-items: initial;
-	}
+    }
 	
 </style>
    

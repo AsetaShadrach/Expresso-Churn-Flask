@@ -90,5 +90,12 @@
         return false;   
     });
     
+    /*============[switch data insight images]=======================*/
+    $('.data_image_link').click(function () {
+        var img_url = $(this).attr('href');
+        document.getElementById("DataImageDiv").style.backgroundImage="url("+img_url+")"; 
+        return false;
+        
+    });
 
 })(jQuery);

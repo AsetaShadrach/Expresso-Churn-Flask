@@ -539,3 +539,8 @@ iframe {
 .button-link{
   color:#9090f7;
 }
+.alert{
+  height: fit-content;
+  margin-left: 20%;
+  margin-right: 20%;
+}
