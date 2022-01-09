@@ -75,8 +75,8 @@
                     {{form.user_predict(id="get_prediction", class="btn user_form_btn btn-secondary")}}
                     
                     <div id ="prediction_div" style="display:none">
-                        <h4 class="btn user_form_btn btn-secondary" aria-hidden="true">Likelyhood of churn</h4>
-                        {{prediction}}
+                        <div aria-hidden="true"><i>Likelyhood of churn : </i>{{prediction}}</div>
+                        {{form.add_prediction(class="btn user_form_btn btn-secondary")}}
                     </div>
                     
                 </div>

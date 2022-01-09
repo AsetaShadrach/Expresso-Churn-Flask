@@ -1,12 +1,11 @@
-import json
-import requests 
+from datetime import date 
 from Expresso import app, bcrypt
 from flask import render_template, url_for, flash, redirect, request
 from Expresso.forms import UserDataForm, LoginForm, ModalAccessGrant, RegistrationForm
 import os
 from flask_login import login_user, logout_user, login_required, current_user
 from Expresso import db
-from Expresso.models import Employee, ExpressoUser
+from Expresso.models import Employee, ExpressoUser, UserPrediction
 from Expresso.helpers.prediction_helper import get_prediction
 
 @app.route('/')
@@ -59,6 +58,15 @@ def userinfo_page():
         if form.user_predict.data:
             prediction = get_prediction(request)
         
+        if form.add_prediction.data:
+            pred_date = date.today()
+            prediction=0.0
+            prediction_to_add = UserPrediction( date_of_prediction = pred_date,
+                                                user_id=form.user_id.data, 
+                                                churn_probability=prediction)
+            db.session.add(prediction_to_add )
+            db.session.commit()   
+            flash(f"Prediction added", category='info') 
 
     return render_template('UserInfo.html', form = form, prediction=prediction)
 

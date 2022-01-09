@@ -37,6 +37,7 @@ class UserDataForm(FlaskForm):
     freq_top_pack = IntegerField(label="Frequency of top pack")
     user_add = SubmitField(label="Add User to Record")
     user_predict = SubmitField(label="Predict Probability of User Churn")
+    add_prediction = SubmitField(label="Add prediction to Database")
 
 class LoginForm(FlaskForm):
     employee_id = StringField( label="Employee ID",  validators = [DataRequired()])
@@ -75,8 +76,6 @@ class AddUserRecord(FlaskForm):
 class AddPredictionRecord(FlaskForm):
     submit = SubmitField(label="Add Prediction")
 
-class Predict(FlaskForm):
-    submit = SubmitField(label="Predict")
 
 
 

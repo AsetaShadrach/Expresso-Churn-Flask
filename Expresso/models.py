@@ -30,7 +30,7 @@ class Employee(db.Model, UserMixin):
 
 class ExpressoUser(db.Model, UserMixin):
     __tablename__="expresso_user"
-    user_id = db.Column(db.String(length=30), primary_key=True)
+    user_id = db.Column(db.String(length=100), primary_key=True)
     region = db.Column(db.String(length=30))
     tenure = db.Column(db.String(length=30))	
     montant = db.Column(db.Float())
@@ -50,3 +50,8 @@ class ExpressoUser(db.Model, UserMixin):
     freq_top_pack = db.Column(db.Integer())
 
 
+class UserPrediction(db.Model , UserMixin):
+    __tablename__ = "prediction_info"
+    date_of_prediction = db.Column(db.Date())
+    user_id = db.Column(db.String(length=100), primary_key=True)
+    churn_probability = db.Column(db.Float())
