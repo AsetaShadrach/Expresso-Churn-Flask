@@ -1,5 +1,3 @@
-USE expresso_churn;
-
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Test.csv'
 INTO TABLE expresso_user 
 FIELDS TERMINATED BY ',' 
@@ -7,8 +5,8 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS  
 
-(@user_id,@vregion, @vtenure, @vmontant, @vfrequency_rech, @vrevenue , 
-@varpu_segment, @vfrequency, @vdata_volume, @von_net, @vorange,
+(@user_id,@vregion, @vtenure, @vmontant, @vfrequence_rech, @vrevenue , 
+@varpu_segment, @vfrequence, @vdata_volume, @von_net, @vorange,
 @vtigo, @vzone1, @vzone2, @vmrg, @vregularity, @vtop_pack, 
 @vfreq_top_pack)
 
@@ -17,10 +15,10 @@ user_id = @user_id,
 region = NULLIF(@vregion,''),
 tenure = NULLIF(@vtenure,''),
 montant = NULLIF(@vmontant,''),
-frequency_rech = NULLIF(@vfrequency_rech,''),
+frequence_rech = NULLIF(@vfrequence_rech,''),
 revenue = NULLIF(@vrevenue,''), 
 arpu_segment = NULLIF(@varpu_segment,''),
-frequency = NULLIF(@vfrequency ,''),
+frequence = NULLIF(@vfrequency ,''),
 data_volume = NULLIF(@vdata_volume,''),
 on_net = NULLIF(@von_net,''),
 orange = NULLIF(@vorange,''),

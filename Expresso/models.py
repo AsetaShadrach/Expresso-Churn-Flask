@@ -30,7 +30,7 @@ class Employee(db.Model, UserMixin):
 
 class ExpressoUser(db.Model, UserMixin):
     __tablename__="expresso_user"
-    userid = db.Column(db.String(length=30), primary_key=True)
+    user_id = db.Column(db.String(length=30), primary_key=True)
     region = db.Column(db.String(length=30))
     tenure = db.Column(db.String(length=30))	
     montant = db.Column(db.Float())

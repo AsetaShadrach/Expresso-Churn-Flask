@@ -1,5 +1,3 @@
-USE expresso_churn;
-
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Train.csv'
 INTO TABLE expresso_user 
 FIELDS TERMINATED BY ',' 
@@ -17,10 +15,10 @@ user_id = @user_id,
 region = NULLIF(@vregion,''),
 tenure = NULLIF(@vtenure,''),
 montant = NULLIF(@vmontant,''),
-frequency_rech = NULLIF(@vfrequency_rech,''),
+frequence_rech = NULLIF(@vfrequency_rech,''),
 revenue = NULLIF(@vrevenue,''), 
 arpu_segment = NULLIF(@varpu_segment,''),
-frequency = NULLIF(@vfrequency ,''),
+frequence = NULLIF(@vfrequency ,''),
 data_volume = NULLIF(@vdata_volume,''),
 on_net = NULLIF(@von_net,''),
 orange = NULLIF(@vorange,''),

@@ -19,7 +19,49 @@ def home_page():
 @login_required
 def userinfo_page():
     form = UserDataForm()
-    return render_template('UserInfo.html', form = form)
+    prediction = ""
+
+    if request.method== "POST":
+        if form.user_add.data:
+            new_user = ExpressoUser.query.filter(ExpressoUser.user_id == form.user_id.data).first()
+            
+            if new_user:
+                flash(f"User already exists", category='warning')
+            else :
+                try:
+                    user_to_add= ExpressoUser(user_id = form.user_id.data,
+                                            region = form.region.data,
+                                            tenure = form.tenure.data,	
+                                            montant = form.montant.data,
+                                            frequence_rech = form.frequence_rech.data,
+                                            revenue = form.revenue.data,
+                                            arpu_segment = form.arpu_segment.data,
+                                            frequence = form.frequence.data,
+                                            data_volume = form.data_volume.data,	
+                                            on_net = form.on_net.data,
+                                            orange	= form.orange.data,
+                                            tigo = form.tigo.data,
+                                            zone1 = form.zone1.data,
+                                            zone2 = form.zone2.data,
+                                            mrg	= form.mrg.data,
+                                            regularity	= form.regularity.data,
+                                            top_pack = form.top_pack.data,
+                                            freq_top_pack = form.freq_top_pack.data)
+
+                    db.session.add(user_to_add)
+                    db.session.commit()
+                except form.errors !={}:
+                    for error_msg in form.errors.values():
+                        flash(f"Error : {error_msg}", category='danger')
+                finally:
+                    flash(f"User Added",category='success')
+        
+        if form.user_predict.data:
+            prediction = get_prediction(request)
+        
+
+    return render_template('UserInfo.html', form = form, prediction=prediction)
+
 
 
 @app.route('/login', methods =['GET','POST'])
@@ -30,13 +72,16 @@ def login_page():
         empl_id = request.form.get('employee_id')
         empl_password = request.form.get('employee_password')
         attempted_employee = Employee.query.filter_by(id=empl_id).first()
-
-        if attempted_employee and attempted_employee.check_password_match(empl_password):
-            login_user(attempted_employee)
-            flash(f"Logged in as {attempted_employee.firstname}", category='success')
-            return redirect(url_for('datainsights_page'))
-        else:
-            flash("Incorrect Username or Password !", category='danger')
+        
+        try:
+            if attempted_employee and attempted_employee.check_password_match(empl_password):
+                login_user(attempted_employee)
+                flash(f"Logged in as {attempted_employee.firstname}", category='success')
+                return redirect(url_for('datainsights_page'))
+            else:
+                flash("Incorrect Username or Password !", category='danger')
+        except TypeError as error:
+            flash(f"Password Error  : Ensure Registration details are okay", category='danger')
             
 
     return render_template('login.html', form = empl_login_form)
@@ -104,6 +149,7 @@ def trial_prediction_page():
     prediction = ""
     if request.method=="POST":
         prediction = get_prediction(request)
+        print(prediction)
         return render_template("trial_prediction.html", form = form, prediction=prediction)
     return render_template("trial_prediction.html", form = form , prediction=prediction )
 

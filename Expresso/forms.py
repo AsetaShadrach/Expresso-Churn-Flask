@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo
 from Expresso.models import Employee
 
 class UserDataForm(FlaskForm):
-    userid = StringField(label="ID", validators=[DataRequired()])
+    user_id = StringField(label="ID", validators=[DataRequired()])
     REGIONS = [ (""),("DAKAR"),("DIOURBEL"),("FATICK"),("KAFFRINE"),
                 ("KAOLACK"),("KEDOUGOU"),("KOLDA"),("LOUGA"),("MATAM"),
                 ("SAINT-LOUIS"),("SEDHIOU"),("TAMBACOUNDA"),("THIES"),("ZIGUINCHOR")]
@@ -21,7 +21,7 @@ class UserDataForm(FlaskForm):
     frequence_rech = IntegerField(label="Freq Rech")
     revenue = FloatField(label="Revenue")
     arpu_segment = FloatField(label="ARPU-Segment")
-    frequence = IntegerField(label="Frequency")
+    frequence = IntegerField(label="Frequence")
     data_volume = IntegerField(label=" Data Volume")	
     on_net = IntegerField(label="No. On-Net calls")
     orange	= IntegerField(label="No of calls to Orange")

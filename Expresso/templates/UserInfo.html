@@ -10,8 +10,8 @@
             <br><br>
             <div class="row">
                 <div class="prediction_col">
-                    {{form.userid.label()}}
-                    {{form.userid(class="form-control", placeholder="User Id")}}
+                    {{form.user_id.label()}}
+                    {{form.user_id(class="form-control", placeholder="User Id")}}
                     <br>
                     {{form.region.label()}}
                     {{form.region(class="form-control", placeholder="Region")}}
@@ -69,18 +69,16 @@
                     {{form.freq_top_pack(class="form-control", placeholder="Frequency of the user's top pack")}}
                 </div>
             
-                <div class="col-3 prediction_col start_middle" >
-                    
+                <div class="prediction_col start_middle" >
+                    {{form.user_add(class="btn user_form_btn btn-secondary")}}
+                    <br>
                     {{form.user_predict(id="get_prediction", class="btn user_form_btn btn-secondary")}}
                     
                     <div id ="prediction_div" style="display:none">
                         <h4 class="btn user_form_btn btn-secondary" aria-hidden="true">Likelyhood of churn</h4>
                         {{prediction}}
                     </div>
-
-                    {{form.user_add(class="btn user_form_btn btn-secondary")}}
                     
-
                 </div>
             </div>
         </form>

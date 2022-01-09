@@ -99,21 +99,26 @@ if any(db[0] != db_name for db in all_dbs):
     #Create the database
     create_database(initial_connection, db_create_sql_file_path)
 
+try:
+    all_dbs.close()
+    initial_connection.close()
+except:
+    pass
 
-time.sleep(4)
+
+
 # Sometimes the server is too slow so you can run a query
 # Sleep allows for the db to finish fully creation before inserting data 
-
+time.sleep(4)
 db_connect  = create_connection(host_name,user_name, user_password, db_name)
 insert_data_to_sql(db_connect,'sql docs/expresso_train_data_loader.sql')
 
 #Also insert the data from test to the users table
-db_connect  = create_connection(host_name,user_name, user_password, db_name)
 insert_data_to_sql(db_connect,'sql docs/expresso_test_data_loader.sql')
 
 # Add Churn Data
-db_connect  = create_connection(host_name,user_name, user_password, db_name)
 insert_data_to_sql(db_connect,'sql docs/churn_table_loader.sql')
 
+time.sleep(4)
 db_connect.close()
 
