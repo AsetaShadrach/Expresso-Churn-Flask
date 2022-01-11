@@ -84,11 +84,13 @@
     });
 
     /*============[show prediction div]=======================*/
-
-    $('#get_prediction').on('click', function(){
-        document.getElementById("prediction_div").style.display="block"; 
-        return false;   
+    
+    /*$('#get_prediction').click(function(){
+        $("#prediction_div").css('visibility', 'visible');
+        return false;
     });
+    
+   
     
     /*============[switch data insight images]=======================*/
     $('.data_image_link').click(function () {

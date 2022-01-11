@@ -6,8 +6,8 @@ url = 'http://localhost:8501/v1/models/saved_model:predict'
 
 def get_values(request):
     param_dict = dict()
-    string_params=["user_id","region","tenure","top_pack","mrg"]
-    form_meta_values =['csrf_token' ,'user_predict', 'user_add']
+    string_params=["region","tenure","top_pack","mrg"]
+    form_meta_values =['csrf_token', 'user_id', 'user_predict', 'user_add','add_prediction']
 
     for key,value in request.form.items():
         if key not in form_meta_values:
@@ -33,7 +33,9 @@ def get_prediction(request):
     data = {'instances':[param_values]}
     data = json.dumps(data)
     
-    json_response = requests.post(url, data=data, headers=headers).json()['predictions']
+    json_response = requests.post(url, data=data, headers=headers).json()
+    print(json_response)
+    json_response = json_response['predictions']
     prediction = round(json_response[0][0],3)
     
     return prediction

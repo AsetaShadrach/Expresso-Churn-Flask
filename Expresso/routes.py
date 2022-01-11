@@ -18,7 +18,7 @@ def home_page():
 @login_required
 def userinfo_page():
     form = UserDataForm()
-    prediction = ""
+    prediction = "- - -"
 
     if request.method== "POST":
         if form.user_add.data:
@@ -59,11 +59,11 @@ def userinfo_page():
             prediction = get_prediction(request)
         
         if form.add_prediction.data:
+            prediction = get_prediction(request)
             pred_date = date.today()
-            prediction=0.0
             prediction_to_add = UserPrediction( date_of_prediction = pred_date,
                                                 user_id=form.user_id.data, 
-                                                churn_probability=prediction)
+                                                churn_probability= prediction)
             db.session.add(prediction_to_add )
             db.session.commit()   
             flash(f"Prediction added", category='info') 
@@ -154,10 +154,10 @@ def logout_page():
 @app.route('/trial-prediction', methods=['GET','POST'])
 def trial_prediction_page():
     form = UserDataForm()
-    prediction = ""
+    prediction = "- - -"
+
     if request.method=="POST":
         prediction = get_prediction(request)
-        print(prediction)
         return render_template("trial_prediction.html", form = form, prediction=prediction)
     return render_template("trial_prediction.html", form = form , prediction=prediction )
 

@@ -5,7 +5,7 @@
 <body>
     <div class="container-login100">
         <div class="row">
-            <div class='col-3'>
+            <div class='col-2'>
                 <!-- dispaly links to images and stats here-->
                 <ul class="image-links">Available Charts
                     {% for image_name in image_names %}
@@ -16,11 +16,9 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div id="DataImageDiv"class="col-9" style="background-image: url('static/images/charts/data2.jpg');">
-                <!-- Display Images and stats here-->
-                
-            </div>
-        </div>
+            <div id="DataImageDiv"class="col-10" style="background-image: url('static/images/charts/Call Volume to Other Providers.png');">
+                 <!--Display Images and stats here -->
+            </div >
 
     </div>
 
@@ -47,7 +45,12 @@
 		justify-content: start;
   		align-items: initial;
     }
-	
+    #DataImageDiv{
+        background-size: 100% 100%; 
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    
 </style>
    
     
