@@ -7,7 +7,7 @@
 - For Tensorflow serving , use the [Docker image on Docker Hub](https://hub.docker.com/r/tensorflow/serving) to orchastrate and serve the model locally on your PC. Have it running at the same time as the Flask App, the ports will/should be different.
 - The model was trained initially and saved, for more details check [here](https://github.com/AsetaShadrach/Expresso-Churn-Prediction/blob/main/Expresso%20Churn%20Pred%20with%20TF%20Functional%20API.ipynb)
 - I run my docker container eith the following command :: 
-docker run -t -p 8505:8505 --mount type=bind,source='/{path to folder}',target=/models/saved_model -e MODEL_NAME=saved_model tensorflow/serving
+docker run -t -p 8501:8501 --mount type=bind,source='/{path to folder}',target=/models/saved_model -e MODEL_NAME=saved_model tensorflow/serving
 - Replace {path to folder} with the actual path to the folder with your model
 
 
