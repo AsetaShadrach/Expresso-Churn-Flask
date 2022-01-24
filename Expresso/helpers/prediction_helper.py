@@ -34,7 +34,6 @@ def get_prediction(request):
     data = json.dumps(data)
     
     json_response = requests.post(url, data=data, headers=headers).json()
-    print(json_response)
     json_response = json_response['predictions']
     prediction = round(json_response[0][0],3)
     
